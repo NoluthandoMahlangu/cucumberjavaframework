@@ -27,7 +27,8 @@ $ mvn test
 ```
 ## Running Docker
 You need to have docker installed.
-Edit Dockerfile to your configurations
+Edit Dockerfile to your configurations 
+Additional info from [here](https://github.com/SeleniumHQ/docker-selenium)
 
 
 By default, tests will run on Chrome. To change that, specify `-Dbrowser={browser}` where `{browser}` is either `chrome` or `firefox`. If you haven't added the chrome driver path to your local variables, you can add it directly in the run command with the option `-Dwebdriver.chrome.driver=path/to/the/driver`.
