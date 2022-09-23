@@ -1,0 +1,1 @@
+cucmber features --format pretty --format html --out docker-html-report.html
