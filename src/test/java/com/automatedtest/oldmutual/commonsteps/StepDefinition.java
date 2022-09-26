@@ -19,7 +19,8 @@ public class StepDefinition {
     }
 
     @And("^user verifies title is displayed$")
-    public void googleLogoIsDisplayed() throws Throwable {
+    public void googleLogoIsDisplayed(final String alert) throws Throwable {
+        this.CommonSteps.acceptCookie(alert);
         this.CommonSteps.checkTitleDisplayed();
     }
 

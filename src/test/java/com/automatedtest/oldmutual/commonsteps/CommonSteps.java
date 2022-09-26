@@ -27,6 +27,8 @@ public class CommonSteps extends BasePage {
     private Map<String, Object> vars;
     JavascriptExecutor js;
 
+    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
+    private WebElement btnAcceptCookies;
 
     @FindBy(css = "h1 > strong")
     private WebElement title;
@@ -65,6 +67,22 @@ public class CommonSteps extends BasePage {
         wait.forLoading(5);
     }
 
+    void acceptCookie(final String action){
+        wait.forElementToBeDisplayed(5, this.btnAcceptCookies, "btnAcceptCookies");
+        if(btnAcceptCookies.isDisplayed()) {
+            btnAcceptCookies.click();
+        }else {
+            System.out.println("No cookie window pop up");
+        }
+
+        Alert alert = driver.switchTo().alert();
+        if (action.equalsIgnoreCase("dismiss")) {
+            alert.dismiss();
+
+        } else {
+            alert.accept();
+        }
+    }
     void checkTitleDisplayed() throws Throwable {
         wait.forElementToBeDisplayed(5, this.title, "title");
         assertEquals(driver.getTitle(), "Bank and Borrow Solutions | Old Mutual");
