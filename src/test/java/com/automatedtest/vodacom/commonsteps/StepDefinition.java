@@ -19,7 +19,8 @@ public class StepDefinition {
     }
 
     @And("user under the Online only Deals clicks on “Buy now”")
-    public void the_Online_Only_Deals_clicks_OnBuyNow() throws  Throwable {
+    public void the_Online_Only_Deals_clicks_OnBuyNow(final String alert) throws  Throwable {
+        this.CommonSteps.acceptCookie(alert);
         this.CommonSteps.onlineOnlyDeals();
     }
 
